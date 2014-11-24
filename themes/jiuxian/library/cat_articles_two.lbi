@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <div class="news " >
+  <div class="title_h2">{$cat_name}的相关知识</div>
+       <ul>  
+  <!--{foreach from=$articles item=article_item name=no2}-->
+
+ <li class='li_{$smarty.foreach.no1.iteration}'>
+  <a href="{$article_item.url}" title="{$article_item.title|escape:html}">{$article_item.short_title}</a>  
+  </li>
+
+  <!--{/foreach}-->
+  </ul>
+</div>

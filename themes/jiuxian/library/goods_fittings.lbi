@@ -1,0 +1,139 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $fittings} -->
+<div id="goods-suggested-combination" class="Combination">
+  <form action="flow.php" method="post" name="ECS_ALL_addcart">
+   <div class="zuhe">
+    <h3 class="h3_3"> <span>优惠套装</span> </h3>
+   
+    <ul  class="clearfix on">
+      <li class="img" >
+      <a class="a_img" href="{$goods.url}">
+       <img src="{$goods.goods_img}"> 
+       </a>
+        <input name="goods_id" type="hidden"id="goods_id_{$goods.goods_id}" value="{$goods.goods_id}" >
+         <dl>
+      <dt><a href="{$goods.url}" target="_blank" class="name">  {$goods.goods_style_name|truncate:15:"...":|true} </a> </dt>
+   
+       <dd><font class="f1">{$goods.promote_price}</font></dd>
+      
+      </dl>
+      </li>
+      
+     <li class="jia_img"> <img  src="images/jia.gif" style="width:19px; height:19px; overflow:hidden;"></li>
+     
+      <li class="middle">
+        <!--{foreach from=$fittings item=goods name=fittings}-->
+         <!--{if $smarty.foreach.fittings.iteration<5 }-->
+        <ol>
+          <a class="a_img" href="{$goods.url}"> <img src="{$goods.goods_thumb}"> </a>
+          <dl>
+            <dt><a href="{$goods.url}">{$goods.short_name|escape:html|truncate:15:"...":|true}&nbsp;x1</a></dt>
+            <dd>
+              <input name="box" type="checkbox" id="goods_ids" value="{$goods.fittings_price_nformat}"  onClick="qq({$goods.goods_id})">
+			    
+              <b class="rmbPrice f1">{$goods.fittings_price}</b>
+            </dd>
+          </dl>
+          <input name="goods_id" style="display:none;"  type="checkbox" id="goods_id_{$goods.goods_id}" value="{$goods.goods_id}" >
+		    <input name="shop_price" style="display:none;" type="checkbox" id="shop_price_id_{$goods.goods_id}" value="{$goods.shop_price_nformat}" >
+        </ol>
+         <!--{/if}-->
+        <!--{/foreach}-->
+      </li>
+	  
+      
+      
+      <li class="last">
+      <p>本店价：
+       <ins class="rmbPrice" id="sum_shop_price"  ><!--{if $goods.is_promote and $goods.gmt_end_time } 促销--> {$goods.promote_price_org}<!-- {else}-->{$goods.shop_price}<!-- {/if} --></ins>
+          </p>
+      
+          <p> 套餐价：<b class="rmbPrice f1" id="show_all_price">  <!--{if $goods.is_promote and $goods.gmt_end_time } 促销--> {$goods.promote_price_org}<!-- {else}-->{$goods.shop_price}<!-- {/if} --></b></p>
+		
+        <p>节&nbsp;&nbsp;&nbsp;省：
+        <span class="rmbPrice f1" id="jiesheng">0.00</span>
+       </p>
+
+    <a href="javascript:;" id="suited-goods-cart"  class="popwin-btn" onClick="addToCart({$goods.goods_id}); fittings_add_cart();"><img src="images/cart22.gif"></a>
+		 <!-- <a href="javascript:;" id="suited-goods-cart"  class="popwin-btn" onClick="addToCart({$goods.goods_id}); fittings_add_cart();">添加到购物车</a>-->
+      </li>
+    </ul>
+    <div class="clear"></div>
+    </div>
+   
+  </form>
+</div>
+
+<script>
+
+function qq(id) {
+	var str=document.getElementsByName("box");
+
+	if(document.getElementById("goods_id_"+id).checked ==false)
+	{
+		document.getElementById("goods_id_"+id).checked=true;
+		document.getElementById("shop_price_id_"+id).checked=true;
+	}
+	else
+	{
+		document.getElementById("goods_id_"+id).checked=false;
+		document.getElementById("shop_price_id_"+id).checked=false;
+	}
+	
+	if({$goods.is_promote} && {$goods.gmt_end_time})
+	{
+		var start_price = {$goods.promote_price_org};
+	}
+	else
+	{
+		var start_price = {$goods.shop_price};
+	}
+	
+	
+	var shop_price = start_price;
+	
+	var org_shop_obj=document.getElementsByName("shop_price");
+	
+	for(i=0;i<org_shop_obj.length;i++) {
+		   if(org_shop_obj[i].type=="checkbox" && org_shop_obj[i].checked) {
+                 shop_price = parseFloat(shop_price)+parseFloat(org_shop_obj[i].value);
+           }
+	}
+
+	document.getElementById("sum_shop_price").innerHTML="￥"+shop_price+"元";
+
+   for(i=0;i<str.length;i++) {
+		   if(str[i].type=="checkbox" && str[i].checked) {
+                 start_price = parseFloat(start_price)+parseFloat(str[i].value);
+           }
+	}
+
+	document.getElementById("show_all_price").innerHTML="￥"+start_price+"元";
+	
+	var jiesheng = (shop_price - start_price);
+	
+	document.getElementById("jiesheng").innerHTML="￥"+jiesheng+"元";
+	
+}
+
+
+function fittings_add_cart()
+{
+	var goods_id_obj=document.getElementsByName("goods_id");	
+	var goods_arr = new Array();
+	 for(i=0;i<goods_id_obj.length;i++) {
+		  if(goods_id_obj[i].type=="checkbox" && goods_id_obj[i].checked) {
+		  		goods_arr[i] =  goods_id_obj[i].value;
+          }
+	}
+	 Ajax.call('flow.php?step=fittings_to_cart', 'goods_arr=' + goods_arr+"&parent_id="+{$fittings.0.parent_id},fittings_add_cart_response, 'POST', 'JSON');
+}
+
+function fittings_add_cart_response(result)
+{
+	location.href='flow.php';
+}
+
+
+</script>
+<!-- {/if} -->

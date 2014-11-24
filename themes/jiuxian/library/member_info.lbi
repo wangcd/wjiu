@@ -1,0 +1,125 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{if $user_info}
+<div class="f_l">
+<div class="f_l log"  style="position:relative; z-index:999999999; ">
+<ul class="ul1" onmouseover="this.className='ul1 ul1_on'" onmouseout="this.className='ul1'">
+ <a class="a1" href="http://www.weijiuwang.com/index.php"><span><strong>许昌总站</strong></span></a>
+  <div class="ul1_float">
+  
+  <ul>
+  
+     
+     <a href="http://www.weijiuwang.com/index.php">禹州分站</a>
+     <a href="http://www.weijiuwang.com/index.php">长葛分站</a>
+     <a href="http://www.weijiuwang.com/index.php">襄县分站</a>
+
+     
+ </ul>    
+  </div>
+ </div>
+	&nbsp;<span>{$lang.hello}，</span><span  style=" font-family:Arial; ">{$user_info.username} 欢迎登录本站！</span>    
+ <a href="user.php">[{$lang.user_center}]</a> 
+ <a href="user.php?act=logout">[{$lang.user_logout}]</a> 
+ </ul> 
+ </div>
+ 
+ 
+ 
+
+ 
+<div class="f_r">
+ 
+
+
+ <div class="f_l log"  style="position:relative; z-index:999999999; ">
+<!--   <ul class="ul1" onmouseover="this.className='ul1 ul1_on'" onmouseout="this.className='ul1'">
+ <a class="a1" href="user.php"><span>我的账户</span></a>
+  <div class="ul1_float">
+  
+  <ul>
+  
+     <a href="user.php?act=order_list">我的订单</a>
+     <a href="user.php?act=message_list">我的留言</a>
+     <a href="user.php?act=collection_list">我的收藏</a>
+     <a href="user.php?act=affiliate">我的推荐</a>
+     <a href="user.php?act=profile">用户信息</a>
+     <a href="user.php?act=address_list">收货地址</a>
+     
+ </ul>    
+  </div>
+    <div class="dang"></div>
+ </ul> -->
+<a href="http://www.weijiuwang.com/flow.php">购物车</a>
+ 
+    <!--{if $navigator_list.top}-->
+
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->  
+  <!--  <span style="color:#bfbfbf;">|</span>    <a href="{$nav.url}"  -->
+	 <!-- {if $nav.opennew eq 1} --> 
+	 <!-- target="_blank" -->
+	 <!-- {/if} -->
+	 <!--{$nav.name}</a>-->
+ 
+    <!-- {/foreach} --> 
+	<!-- {/if} -->
+</div>
+
+ <span class="rexian">客服热线:</span>
+ <span class="phone"><font>0374-9617799</font></span> </div>
+ 
+ 
+ 
+ 
+{else}
+&nbsp;<span>您好，欢迎光临本站！</span>
+[<a href="user.php">登录</a><span style="color:#666;">|</span><a href="user.php?act=register">注册</a>]
+<a href="user.php?act=oath&type=qq"><img src="images/qq_login.gif" width="50"/></a>
+<a href="user.php?act=oath&type=weibo"><img src="images/sina_login_logo.gif"></a>
+
+
+
+<div class="f_r">
+ 
+
+
+ <div class="f_l log"  style="position:relative; z-index:999999999; ">
+<!--   <ul class="ul1" onmouseover="this.className='ul1 ul1_on'" onmouseout="this.className='ul1'">
+ <a class="a1" href="user.php"><span>我的账户</span></a>
+  <div class="ul1_float">
+  
+  <ul>
+  
+     <a href="user.php?act=order_list">我的订单</a>
+     <a href="user.php?act=message_list">我的留言</a>
+     <a href="user.php?act=collection_list">我的收藏</a>
+     <a href="user.php?act=affiliate">我的推荐</a>
+     <a href="user.php?act=profile">用户信息</a>
+     <a href="user.php?act=address_list">收货地址</a>
+     
+ </ul>    
+  </div>
+    <div class="dang"></div>
+ </ul> -->
+<a href="http://www.weijiuwang.com/flow.php">购物车</a>|
+<a href="http://www.weijiuwang.com/admin/privilege.php?act=login">联盟商登陆</a>|
+<a href="http://www.weijiuwang.com/admin/privilege.php?act=login">配货商登陆</a>
+ 
+    <!--{if $navigator_list.top}-->
+
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->  
+    <span style="color:#bfbfbf;">|</span>
+    
+     <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->  target="_blank" <!-- {/if} -->>{$nav.name}</a>
+
+    <!-- {/foreach} --> <!-- {/if} -->
+</div>
+
+ <span class="rexian">客服热线:</span>
+ <span class="phone"><font>0374-9617799</font></span> </div>
+
+
+{/if}
+
+

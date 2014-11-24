@@ -1,0 +1,82 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<!--分类商品列表-->
+<!-- {if $cat_rec_sign neq 1} zhangyh_100322 -->
+<div class="block cleaefix">
+  <div class="title">
+     <span class="f_l"><a href="{$goods_cat.url}" ><img src="../images/cat/{$goods_cat.id}.jpg"> </a></span>
+     <span class="f_r">  
+        <!--{foreach name=childlist from=$goods_cat.children item=children name=child}-->
+        <a href="category.php?id={$children.cat_id}" target="_blank"> {$children.cat_name} </a>
+        <span>&nbsp;</span>
+        <!--{/foreach}-->
+        </span>
+  </div>  
+ <div class="cat_ad">
+  <div class="ad_l">
+  {insert name='get_ad' cat_name=$goods_cat.name type="广告1"}
+  </div> 
+  
+   <div class="ad_m">
+ 
+     <div id="slideBox" class="slide_box">
+			<div class="hd">
+				<ul><li></li><li></li></ul>
+			</div>
+			<div class="bd">
+				<ul>
+					<li>{insert name='get_ad' cat_name=$goods_cat.name type="广告2"}</li>
+					<li>{insert name='get_ad' cat_name=$goods_cat.name type="广告3"}</li>
+					
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		jQuery(".slide_box").slide({mainCell:".bd ul",titCell:".hd li",autoPlay:true,effect:"left"});
+		</script>
+
+  </div>
+  
+   <div class="ad_r">
+    <ul>
+    <li>{insert name='get_ad' cat_name=$goods_cat.name type="广告4"}</li>
+    <li>{insert name='get_ad' cat_name=$goods_cat.name type="广告5"}</li>
+    <li>{insert name='get_ad' cat_name=$goods_cat.name type="广告6"}</li>
+    
+    </ul>  
+  </div>
+ </div>     
+ 
+ <div class="floorC clearfix">
+   <!-- {/if} zhangyh_100322-->
+      <ul>
+        <!--{foreach from=$cat_goods item=goods name=cat_goods}-->
+
+            <li class='li{$smarty.foreach.cat_goods.iteration}'>
+            
+          <a class="propic" href="{$goods.url}"><img  src="{$goods.thumb}" alt="{$goods.name|escape:html}"  width="160"  height="160"/></a>
+          <div class="txt">
+             <p class="proinfo"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name|escape:html|truncate:15:"...":|true}</a>  </p>
+              <p class="price"><span >市场价:<font class="market">{$goods.market_price}</font></span>
+              <span class="snPrice">  
+              <!--{if $goods.promote_price neq "" } -->
+                活动价:<b>{$goods.promote_price}</b>
+                <!--{else}-->
+                本店价:<b>{$goods.shop_price}</b>
+                <!--{/if}-->
+                </span> 
+               </p>
+               </div> 
+               
+            </li>
+          
+        <!--{/foreach}-->
+      </ul>
+ </div>
+</div>
+
+
+   
+

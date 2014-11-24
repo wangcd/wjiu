@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $bought_goods} -->
+  <div class="goods_related bought_goods" >
+     <h3>买过该商品的人还买过</h3>
+      <div class="goods_related_box clearfix">
+       <!--{foreach from=$bought_goods item=bought_goods_data}-->
+       
+     
+	   <div class="goodsItem">
+         <a href="{$bought_goods_data.url}"><img src="{$bought_goods_data.goods_thumb}" alt="{$bought_goods_data.goods_name}"   style="width:160px; height:160px;" class="goodsimg"  /></a>
+          <p  class="name"><a href="{$bought_goods_data.url}" title="{$bought_goods_data.goods_name}">{$bought_goods_data.short_name}</a></p>
+           <p class="price">
+         
+         <font style="color:#666;" >市场价:</font>&nbsp;<font style="color:#999; text-decoration:line-through; padding-right:10px;">{$goods.market_price}</font>
+       
+         <font style="color:#666;" >本店价:</font>&nbsp;<strong style="color:#de0606;">{$goods.shop_price}</strong>
+		</p>
+         
+         
+         
+		 </div> 
+         
+		
+     
+        <!-- {/foreach} -->
+     </div>
+     </div>
+    <div class="blank "></div>
+    <!-- {/if} -->

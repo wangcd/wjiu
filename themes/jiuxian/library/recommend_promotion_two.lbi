@@ -1,0 +1,77 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files='jxwine_index.js'}
+<!-- {if $promotion_goods} -->
+<div class="prom_box block clearfix">
+<div class="tit">
+<div class="f_l">&nbsp;</div>
+</div>
+
+<div class="ad f_l">
+ <div id="slideBox" class="pro_ad">
+			<div class="hd">
+				<ul><li></li><li></li><li></li></ul>
+			</div>
+			<div class="bd">
+				<ul>
+					<li>{insert name='ads' id=103 num=1}</li>
+					<li>{insert name='ads' id=104 num=1}</li>
+					<li>{insert name='ads' id=105 num=1}</li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		jQuery(".pro_ad").slide({mainCell:".bd ul",titCell:".hd li",autoPlay:true});
+		</script>
+        
+       
+      <div id="slideBox" class="pro_ad">
+			<div class="hd">
+				<ul><li></li><li></li><li></li></ul>
+			</div>
+			<div class="bd">
+				<ul>
+					<li>{insert name='ads' id=106 num=1}</li>
+					<li>{insert name='ads' id=107 num=1}</li>
+					<li>{insert name='ads' id=108 num=1}</li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		jQuery(".pro_ad").slide({mainCell:".bd ul",titCell:".hd li",autoPlay:true});
+		</script>
+           
+        
+        
+        
+</div>
+
+<ul class="goods_list f_r">
+
+<!--{foreach from=$promotion_goods item=goods name=no}-->
+  <!--{if $smarty.foreach.no.iteration>10}-->
+<li class="li{$smarty.foreach.no.iteration}">
+ <span class="promotion_pic">&nbsp;</span>
+   <a href="{$goods.url}"><img  src="{$goods.thumb}" alt="{$goods.name|escape:html}" width="160" height="160"  /></a>
+     <div class="tabSmallTitle">
+        <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}<font color="#FF0000">{$goods.brief|truncate:8:"...":|true}</font></a></p>
+        <p> 
+         <font>市场价:</font><span class="market">{$goods.market_price}</span>
+         <font>活动价:</font><strong>{$goods.promote_price}</strong>
+        </p>
+            
+           <div class="time">
+            <span>剩余时间:</span>
+           <span class="endtime" value="{$goods.e_time}" showday="show"></span></div> 
+         
+     </div>
+</li>
+ <!--{/if}-->
+<!--{/foreach}-->
+</ul>
+
+</div>
+
+<!-- {/if} -->
+

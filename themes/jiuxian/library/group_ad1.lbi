@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <div class="group_l" >
+          <ul class="clearfix" style="position:absolute;">
+            <li class="big_list clearfix">{insert name='ads' id=130 num=1} </li>
+            <li class="big_list clearfix"> {insert name='ads' id=131 num=1} </li>
+            <li class="big_list clearfix"> {insert name='ads' id=132 num=1} </li>
+			<li class="big_list clearfix">{insert name='ads' id=133 num=1} </li>
+          </ul>
+          <div class="deal_brief_trigger">
+            <div class="trigger">
+              <div class="trigger_bg"></div>
+              <div class="title_box">一道泓引爆最低价！五折封顶！</div>
+            </div>
+			
+			<div class="trigger">
+              <div class="trigger_bg"></div>
+              <div class="title_box">酱香美酒大PK  全场1折疯抢！</div>
+            </div>
+            <div class="trigger last">
+              <div class="trigger_bg"></div>
+              <div class="title_box">许燎源大师经典之作，0利促销！</div>
+            </div>
+            <div class="trigger last" style="margin-right:0;">
+              <div class="trigger_bg"></div>
+              <div class="title_box">奢侈有限，王朝无限！</div>
+            </div>
+          </div>
+        </div>

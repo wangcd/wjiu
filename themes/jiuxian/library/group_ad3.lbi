@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <div class="group_l" >
+          <ul class="clearfix" style="position:absolute;">
+            <li class="big_list clearfix">{insert name='ads' id=138 num=1} </li>
+            <li class="big_list clearfix"> {insert name='ads' id=139 num=1} </li>
+            <li class="big_list clearfix"> {insert name='ads' id=140 num=1} </li>
+			<li class="big_list clearfix">{insert name='ads' id=141 num=1} </li>
+          </ul>
+          <div class="deal_brief_trigger">
+            <div class="trigger">
+              <div class="trigger_bg"></div>
+              <div class="title_box">年底冲业绩 千万名酒9元秒！</div>
+            </div>
+			
+			<div class="trigger">
+              <div class="trigger_bg"></div>
+              <div class="title_box">百家酒企 大冲刺 联合让利一个亿！</div>
+            </div>
+            <div class="trigger last">
+              <div class="trigger_bg"></div>
+              <div class="title_box">爆款大牌抄底价  千万名酒9元秒！</div>
+            </div>
+            <div class="trigger last" style="margin-right:0;">
+              <div class="trigger_bg"></div>
+              <div class="title_box">年终大促，精选洋酒低至1.8折！</div>
+            </div>
+          </div>
+        </div>

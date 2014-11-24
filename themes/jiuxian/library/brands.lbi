@@ -1,0 +1,36 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="blank"></div>
+<!-- {if $brand_list} -->
+<div class="block">
+<div class="homebrand clearfix">  
+ 
+   <div class="title">
+    <span>品牌旗舰店</span>
+	<em><a href="brand.php" target="_blank">更多品牌</a></em></div>
+     <div class="brandbox">
+      
+      <div class="brandlist">
+       <!-- {foreach from=$brand_list item=brand name=brand_foreach} -->
+    {if ($smarty.foreach.brand_foreach.iteration) mod 18 eq 0}<ul class="brd01">{/if}
+  
+  <li>
+    <a href="{$brand.url}"><img class="brand_img" src="../data/brandlogo/{$brand.brand_logo}" alt="{$brand.brand_name|escape:html} ({$brand.goods_num})" /></a>
+    <span>{$brand.brand_name|escape:html}</span>
+ </li>
+ 
+	 {if ($smarty.foreach.brand_foreach.iteration) mod 11 eq 1}</ul class="brd01">{/if}
+      <!-- {/foreach} --> 
+      </div>
+      
+     </div>
+   
+    <div style="clear:both"></div> 
+ 
+</div>
+</div> 
+<div class="blank"></div>
+<!-- {/if} -->
+
+
+
+

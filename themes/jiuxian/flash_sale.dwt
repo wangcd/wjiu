@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+
+<script type="text/javascript">
+var cur_date = new Date();
+var serverTime = cur_date.getTime();
+</script>
+
+</script>
+ <SCRIPT type=text/javascript>
+window.pageConfig={
+	compatible:true,
+	navId:"home"
+};
+</SCRIPT>
+</head>
+<body>
+
+<!--[if IE 6]>
+<script src="themes/hecha/js/ie6_png.js"></script>
+<script> DD_belatedPNG.fix('.pngfix'); </script>
+<![endif]-->
+
+<!-- #BeginLibraryItem "/library/page_header_sale.lbi" --><!-- #EndLibraryItem -->
+
+<script type="text/ecmascript" src="themes/hecha/js/flash_sale.js"></script>
+<div class="grabbuy ">
+  <!-- 活动商品 -->
+  <div class="tuangou block">
+ 
+    
+    
+     <div class="tuan_bg w">&nbsp;</div>
+    <div class="prodlist">
+    
+     
+ <div  class="tuan_here"> {$ur_here} <span> <code> ></code> <a href="flash_sale.php">团购频道</a></span></div>
+      <div class="blank15"></div>
+      
+      
+      
+          <!-- {foreach from=$flash_sale_goods item=goods name=no} -->
+     <!-- {if $smarty.foreach.no.iteration<2}-->
+      <div class="tuan_title">
+      <span class="tit_bg">&nbsp;</span>
+      <span><strong>今日特卖</strong><small>TODAY'S SELECTION</small></span>
+      </div>
+      <div class="blank15"></div>
+      <div class="tuan_today">
+       <ol>
+        <div class="txt"><span>{$goods.name}</span></div>
+        <div class="tuan_tl"><p>&nbsp;</p>
+        
+      <div class="tuan_t_pr">  <strong>{$goods.promote_price}</strong></div> 
+             
+             <div class="tuan_t_pr2">
+              <span>原价:<del>{$goods.shop_price}</del>元</span>
+             &nbsp;&nbsp;|&nbsp;&nbsp;<label>{$goods.zhekou}折</label> 
+             </div> 
+            <div class="tuan_buy" >
+          <a class="btn-buy" href="{$goods.url}" target="_blank"><img src="images/buy2.gif" /></a>
+          </p>
+
+        </div>
+
+        <div class="endtime tuan_tx2"  value="{$goods.end_date}"><font  value="{$goods.end_date}"></font></div>
+        <div class="tuan_tx2">数量有限，赶快下单吧！</div>
+        </div>
+        
+            <div class="tuan_ad">
+     {insert name='ads' id=90 num=1}
+  </div>     
+  
+  
+     <div class="tuan_tr w">
+      <p class="tuan_img"><a href="{$goods.url}" target="_blank"><img src="images/inp2.gif" /></a></p>
+      <!-- #BeginLibraryItem "/library/fenxiang_tuan.lbi" --> <!-- #EndLibraryItem -->
+     </div>  
+       </ol>
+   
+      </div>
+      
+        
+       <!-- {/if} -->		
+      <!-- {/foreach} -->
+      
+      
+      
+      
+      
+       
+      
+      
+      
+      
+     <div class="blank15"></div> 
+     <ul>
+      <!-- {foreach from=$flash_sale_goods item=goods name=no} -->
+     <!-- {if $smarty.foreach.no.iteration>1}-->
+    
+        <div class="tuan_pro"> 
+        <p class="tuan_time">
+    
+      <font class="endtime" value="{$goods.end_date}"></font>
+        </p>
+        
+         <p class="tit"><a href="{$goods.url}">{$goods.name}</a></p>
+        <div>
+        <a class="prod-img" target="_blank" href="{$goods.url}"> 
+        <img width="350" height="350" alt="{$goods.name}" src="{$goods.goods_img}">
+          <!--  <i><ins class="zhe">折</ins><ins class="zeng">赠</ins></i>  -->
+          </a>
+         </div>
+          <!-- 评分 -->
+          <div class="tuan_pri">
+           <div class="prod-price"> <span class="minprice">  <strong>{$goods.promote_price}</strong></span> 
+             
+             <small>
+              <span><del>原价{$goods.shop_price}</del>元</span>
+              <label>{$goods.zhekou}折</label> 
+             </small> 
+           
+           </div>
+           
+          
+          <p class="qiang">
+          <a class="btn-buy" href="{$goods.url}"  target="_blank"><img src="images/buy3.gif" /></a>
+          </p>
+         
+          </div>
+        </div>
+        
+       <!-- {/if} -->		
+      <!-- {/foreach} -->
+      </ul>
+      <div class="clearfix line3"></div>
+    </div>
+    
+    <div class="tuan_bg2 w">&nbsp;</div>
+  </div>
+</div>
+
+
+<div class=" blank15" style="background:#99C33E;"></div>  
+  <!-- #BeginLibraryItem "/library/help_sale.lbi" --><!-- #EndLibraryItem --> 
+  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+  
+  
+  <script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+<script type="text/javascript">
+
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+
+
+
+</script>
+</body>
+</html>

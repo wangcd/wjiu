@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <div class="group_l" >
+          <ul class="clearfix" style="position:absolute;">
+            <li class="big_list clearfix">{insert name='ads' id=134 num=1} </li>
+            <li class="big_list clearfix"> {insert name='ads' id=135 num=1} </li>
+            <li class="big_list clearfix"> {insert name='ads' id=136 num=1} </li>
+			<li class="big_list clearfix">{insert name='ads' id=137 num=1} </li>
+          </ul>
+          <div class="deal_brief_trigger">
+            <div class="trigger">
+              <div class="trigger_bg"></div>
+              <div class="title_box">35°井冈山红色经典（四星）</div>
+            </div>
+			
+			<div class="trigger">
+              <div class="trigger_bg"></div>
+              <div class="title_box">华梦庄园玫瑰香干白葡萄酒</div>
+            </div>
+            <div class="trigger last">
+              <div class="trigger_bg"></div>
+              <div class="title_box">52°泸州老窖泸州贡新共享</div>
+            </div>
+            <div class="trigger last">
+              <div class="trigger_bg"></div>
+              <div class="title_box">桃红葡萄酒750ml</div>
+            </div>
+          </div>
+        </div>

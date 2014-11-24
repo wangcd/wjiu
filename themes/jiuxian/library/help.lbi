@@ -1,0 +1,56 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!--{if $helps}-->
+<div class="block">
+   <div class="sub_help  clearfix">
+   
+<!-- {foreach from=$helps item=help_cat name=no} -->
+<dl class="dl_{$smarty.foreach.no.iteration}">
+  <dt> {$help_cat.cat_name}</dt>
+  <dd> <!-- {foreach from=$help_cat.article item=item} -->
+ <a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a>
+  <!-- {/foreach} --></dd>
+</dl>
+<!-- {/foreach} -->
+  </div>
+</div>
+
+<div class="blank"></div>
+<!--{/if}-->
+
+<div class="block">
+<ul class="sub_service">
+			<li class="t1" title="支付宝特约商家"><a href="" target="_blank" rel="nofollow">支付宝特约商家</a></li>
+			<li class="t2" title="7天退换货保障"><a href="http://www.hecha.cn/help/show-359.html" target="_blank" rel="nofollow">7天退换货保障</a></li>
+			<li class="t3" title="满98元免费配送"><a href="http://www.hecha.cn/help/show-20955.html" target="_blank" rel="nofollow">满98元免费配送</a></li>
+			<li class="t4" title="400城市送货上市货到付款"><a href="http://www.hecha.cn/help/show-20957.html" target="_blank" rel="nofollow">400城市送货上市货到付款</a></li>
+		<div class="clear"></div>
+		</ul>
+</div>
+
+<div class="blank"></div>
+<!--友情链接 start-->
+<!--{if $img_links  or $txt_links }-->
+<div class="block clearfix">
+ <div  class="bottomNav">
+
+     <div class="title"><span>友情链接</span></span></div>
+     
+    <!-- {if $txt_links} -->
+     <div class="link">
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link name=link}-->
+   
+     <a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a> 
+    
+    <!--结束文字类型的友情链接{/foreach}-->
+     <span><a href="">更多》</a></span>
+    </div>
+     
+    <!-- {/if} --> 
+    
+</div>
+</div>
+
+<!--{/if}-->
+
+

@@ -1,0 +1,58 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!--友情链接 start-->
+<!--{if $img_links  or $txt_links }-->
+<div class="block clearfix">
+ <div  class="bottomNav">
+
+     <div class="title"><span>友情链接</span></span></div>
+     
+    <!-- {if $txt_links} -->
+     <div class="link">
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link name=link}-->
+   
+     <a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a> 
+    
+    <!--结束文字类型的友情链接{/foreach}-->
+     <span><a href="">更多》</a></span>
+    </div>
+     
+    <!-- {/if} --> 
+    
+</div>
+</div>
+
+<!--{/if}-->
+
+
+
+
+<!--{if $helps}-->
+<div class="help_bg">
+<div class="block">
+   <div class="helpTitBg  clearfix">
+   
+<!-- {foreach from=$helps item=help_cat name=no} -->
+<dl class="dl_{$smarty.foreach.no.iteration}">
+  <dt><s><img src="../images/h{$smarty.foreach.no.iteration}.gif" /></s> {$help_cat.cat_name}</dt>
+  <dd> <!-- {foreach from=$help_cat.article item=item} -->
+ <a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a>
+  <!-- {/foreach} --></dd>
+</dl>
+<!-- {/foreach} -->
+  </div>
+</div>
+
+<div class="blank"></div>
+<!--{/if}-->
+
+ 
+ <ul class="service">
+  <li class="s1" title="支付宝特约商家">支付宝特约商家</li>
+  <li class="s2" title="7天退换货保障">7天退换货保障</li>
+  <li class="s3" title="满200元免费配送">满200元免费配送</li>
+  <li class="s4" title="400城市送货上市货到付款">400城市送货上市货到付款</li>
+  <li class="s5" title="400城市送货上市货到付款">400城市送货上市货到付款</li>
+ </ul>
+
+ </div>

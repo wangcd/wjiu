@@ -1,0 +1,183 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<div class="group_top">
+<div class="f_l">
+<h2 id="slide01" class="tabFront" ><span class="icn"></span>最热团购<i></i></h2>
+<h2 id="slide02" class="tabBack"><span class="icn"></span>品牌团<i></i></h2>
+<h2 id="slide03" class="tabBack"><span class="icn"></span>新品推荐<i></i></h2>
+<h2 id="slide04" class="tabBack"><span class="icn"></span>缤纷活动</h2>
+
+</div> 
+
+<div class="f_r">
+<div id="slide01_body" style="display:block;">
+<div class=slides>
+                <ul class="slide-pic">
+                  <li class="cur">
+                  
+                  </li>
+                  
+                  <li>
+                  
+                  </li>
+                  
+                  <li>
+                  
+                  </li>
+                  
+                  <li>
+                  
+                  </li>
+                  
+                </ul>
+                <ul class="slide-li op">
+                  <li class="cur"></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class="slide-txt" >
+                  <li><a href="#" target=_blank>年底冲业绩 千万名酒9元秒！</a></li>
+                  <li><a href="#" target=_blank>百家酒企  联合让利一个亿！</a></li>
+                  <li><a href="#" target=_blank>爆款大牌抄底价！</a></li>
+                  <li><a href="#" target=_blank>精选洋酒低至1.8折！</a></li>
+                </ul>
+              </div>
+
+
+
+
+
+
+
+
+</div>
+
+<div id="slide02_body" style="display:none;">
+<div class=slides>
+                <ul class="slide-pic">
+                  <li class="cur">{insert name='ads' id=130 num=1}</li>
+                  <li>{insert name='ads' id=131 num=1}</li>
+                  <li>{insert name='ads' id=132 num=1}</li>
+                  <li>{insert name='ads' id=133 num=1}</li>
+                </ul>
+                <ul class="slide-li op">
+                  <li class="cur"></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class="slide-txt" >
+                  <li><a href="#" target=_blank>一道泓引爆最低价！五折封顶！</a></li>
+                  <li><a href="#" target=_blank>酱香美酒大PK  全场1折疯抢！</a></li>
+                  <li><a href="#" target=_blank>许燎源大师经典之作，0利促销！</a></li>
+                  <li><a href="#" target=_blank>奢侈有限，王朝无限！</a></li>
+                </ul>
+              </div>
+
+
+
+</div>
+
+
+<div id="slide03_body" style="display:none;">
+ <div class=slides>
+                <ul class="slide-pic">
+                  <li class="cur">{insert name='ads' id=134 num=1}</li>
+                  <li>{insert name='ads' id=135 num=1}</li>
+                  <li>{insert name='ads' id=136 num=1}</li>
+                  <li>{insert name='ads' id=137 num=1}</li>
+                </ul>
+                <ul class="slide-li op">
+                  <li class="cur"></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class="slide-txt" >
+                  <li><a href="#" target=_blank>35°井冈山红色经典（四星）</a></li>
+                  <li><a href="#" target=_blank>华梦庄园玫瑰香干白葡萄酒</a></li>
+                  <li><a href="#" target=_blank>52°泸州老窖泸州贡新共享</a></li>
+                  <li><a href="#" target=_blank>桃红葡萄酒750ml</a></li>
+                </ul>
+              </div>
+
+
+
+</div>
+
+<div id="slide04_body" style="display:none;">
+<div class=slides>
+                <ul class="slide-pic">
+                  <li class="cur">{insert name='ads' id=138 num=1}</li>
+                  <li>{insert name='ads' id=139 num=1}</li>
+                  <li>{insert name='ads' id=140 num=1}</li>
+                  <li>{insert name='ads' id=141 num=1}</li>
+                </ul>
+                <ul class="slide-li op">
+                  <li class="cur"></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class="slide-txt" >
+                  <li><a href="#" target=_blank>年底冲业绩 千万名酒9元秒！</a></li>
+                  <li><a href="#" target=_blank>百家酒企 大冲刺 联合让利一个亿！</a></li>
+                  <li><a href="#" target=_blank>爆款大牌抄底价  千万名酒9元秒！</a></li>
+                  <li><a href="#" target=_blank>年终大促，精选洋酒低至1.8折！</a></li>
+                </ul>
+              </div>
+
+
+
+
+
+
+
+</div>
+
+</div>  
+
+</div>
+ 
+<script type="text/javascript">
+//<![CDATA[
+{literal}
+  var cycleList = ['slide01','slide02','slide03','slide04'];
+  var tabFront = 'tabFront';
+  var tabBack = 'tabBack';
+  function cycleShow(obj)
+  {
+    var curObj;
+    var curBody;
+    for (i=0; i < cycleList.length; i++)
+    {
+      curObj = document.getElementById(cycleList[i]);
+      curBody = document.getElementById(cycleList[i] + '_body');
+      if (obj.id == curObj.id)
+      {
+        curObj.className = tabFront;
+        curBody.style.display = "";
+      }
+      else
+      {
+        curObj.className = tabBack;
+        curBody.style.display = "none";
+      }
+    }
+  }
+
+  // 添加事件
+  for (i=0; i< cycleList.length; i++)
+  {
+    document.getElementById(cycleList[i]).onmousemove = function()
+    {
+      cycleShow(this);
+    };
+  }
+{/literal}
+//]]>
+</script>
+
+

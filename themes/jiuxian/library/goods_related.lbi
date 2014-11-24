@@ -1,0 +1,22 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_goods} -->
+    <div class="goods_related">
+     <h3>您可能感兴趣</h3>
+      <div class="goods_related_box clearfix">
+      <!--{foreach from=$related_goods item=releated_goods_data}-->
+        <div class="goodsItem" >
+          <a href="{$releated_goods_data.url}"><img src="{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name}" style="width:160px; height:160px;" class="goodsimg" /></a> 
+           
+       <p class="name"> <a href="{$releated_goods_data.url}" title="{$releated_goods_data.goods_name}">{$releated_goods_data.short_name}</a> </p>
+        <!-- {if $releated_goods_data.promote_price neq 0} -->
+         <font class="f1">{$releated_goods_data.formated_promote_price}</font>
+        <!-- {else} -->
+         <font class="f1">{$releated_goods_data.shop_price}</font>
+        <!-- {/if} -->
+         
+     </div>
+        <!--{/foreach}-->
+      </div>
+    </div>
+<div class="blank5"></div>
+<!-- {/if} -->

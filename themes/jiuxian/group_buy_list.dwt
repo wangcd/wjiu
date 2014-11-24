@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+
+
+</head>
+<body>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+{insert_scripts files='allBuy.js,group.js'}
+
+
+<script>
+$(function(){
+	var datename = new Date();
+	var Offset = datename.getTimezoneOffset() * 28800;
+	
+	setInterval(function(){
+      $(".endtime").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('value')) * 1000 - Offset) ;
+		var show_day =  obj.attr('showday');
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime();
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+		var myH_show=Math.floor(nMS/(1000*60*60) % 24);
+        var myH=Math.floor(nMS/(1000*60*60));
+        var myM=Math.floor(nMS/(1000*60)) % 60;
+        var myS=Math.floor(nMS/1000) % 60;
+        var myMS=Math.floor(nMS/100) % 10;
+		var myHZero = '';
+ 		var myMZero = '';
+		var mySZero = '';
+		if (myH < 10)
+		{
+			var myHZero = '0';
+		}
+		if (myM < 10)
+		{
+			var myMZero = '0';
+		}
+		if (myS < 10)
+		{
+			var mySZero = '0';
+		}
+		
+        if(myD >= 0){
+			if(show_day == 'show')
+			{
+				var str = '<span>'+myD+'</strong>天<strong class="tcd-h">'+myH_show+'</strong>时<strong class="tcd-m">'+myM+'</strong>分<strong class="tcd-s">'+myS+'</strong>秒';
+			}
+			else
+			{
+				var str = '<b class="tcd-h">'+myHZero+myH+'</b>:<b class="tcd-m">'+myMZero+myM+'</b>:<b class="tcd-s">'+mySZero+myS+'</b>';
+			}
+        }else{
+			var str = "已结束！";	
+		}
+		obj.html(str);
+      });
+    }, 100);
+})
+	
+
+</script>
+
+  
+<div class="wrap">
+
+<div class="group_ad" > 
+</div>
+
+
+<script>
+$(function(){
+	
+$("#group_box1").slide({mainCell:".group_l ul",autoPlay:true,titCell:".deal_brief_trigger .trigger",titOnClassName:"current"});
+$("#group_box2").slide({mainCell:".group_l ul",autoPlay:true,titCell:".deal_brief_trigger .trigger",titOnClassName:"current"});
+$("#group_box3").slide({mainCell:".group_l ul",autoPlay:true,titCell:".deal_brief_trigger .trigger",titOnClassName:"current"});
+$("#group_box4").slide({mainCell:".group_l ul",autoPlay:true,titCell:".deal_brief_trigger .trigger",titOnClassName:"current"});
+$("#home_slides_deals").slide({titCell:".home_main_slides h2",mainCell:"#com_v"});
+
+//广告位隐藏
+	$(".left_ad_box").click(function(){
+		$(this).parents("#lefa_box").remove();
+	})
+	$(".right_ad_box").click(function(){
+		$(this).parents("#right_box").remove();
+	})	
+
+})
+</script>
+
+<div class="block clearfix">
+ <div  id="home_slides_deals">
+    <div class="home_main_slides">
+     
+        <h2 class="slide01 "> <span class="corn png "></span>最热团购<i></i></h2>
+        <h2 class="slide02"><span class="corn png "></span>品牌团<i></i></h2>
+        <h2 class="slide03"><span class="corn png "></span>新品推荐<i></i></h2>
+        <h2 class="slide04" ><span class="corn png "></span>缤纷活动</h2>
+     
+    </div>
+    <div id="com_v">
+      <div id="group_box1">
+        <div class="group_l" >
+          <ul class="clearfix" style="position:absolute;">
+            <!--{foreach from=$gb_list item=group_buy key=key name=foo}-->
+            <!-- {if $smarty.foreach.foo.iteration < 4}-->
+            <li class="big_list clearfix" >
+              <div  class="deal_brief">
+                <div class="deal_highlight" >
+                  <div class="deal_short_name_pic"> <a href="{$group_buy.url}"target=_blank><img alt="{$group_buy.goods_name}" src="{$group_buy.goods_thumb}"  / > </A> </div>
+                </div>
+                <div class="deal_info">
+
+                <div class="countdown">
+                    <input type="hidden" class="time_left" value="15247">
+                    <div  class="timer" > 
+                    <span class="icon"></span> <span class="grey">距团购结束</span> <span class="endtime" showday="show" value="{$group_buy.end_date}" ></span>
+                  </div>
+                  <div class="title">
+                    <h1>  <a  href="{$group_buy.url}" target="_blank" style="color:#c00;">{$group_buy.goods_name}</a>{$group_buy.goods_brief} </h1>
+                  </div>
+                  <div class="ribbon">
+                    <div class="bg">&nbsp;</div>
+                    <div class="price">
+                      <p class="market_price">市场价：&nbsp;&nbsp;{$group_buy.market_price}</p>
+                      <p class="market_price">您节省：&nbsp;&nbsp;{$group_buy.jiesheng}</p>
+                    </div>
+                    <div class="buyit"> <a href="{$group_buy.url}" target="_blank"><strong>{$group_buy.price_ladder.0.formated_price}</strong></a> </div>
+                  </div>
+                  <div class="deal_info_box">
+                    
+                    
+                    <div class="purhcase_number"> <b class="pink" style="float:none">{$group_buy.valid_goods}</b><span >人已经购买</span> </div>
+                  </div>
+                </div>
+                <div class="blank"></div>
+              </div>
+            </li>
+            <!-- {/if} -->
+            <!-- {/foreach}-->
+          </ul>
+          <div class="deal_brief_trigger">
+            <div class="trigger current">
+              <div class="trigger_bg"></div>
+              <div class="title_box">年底冲业绩 千万名酒9元秒！</div>
+            </div>
+            <div class="trigger">
+              <div class="trigger_bg"></div>
+              <div class="title_box">爆款大牌抄底价！</div>
+            </div>
+            <div class="trigger last">
+              <div class="trigger_bg"></div>
+              <div class="title_box">精选洋酒低至1.8折！</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="group_box2">
+        <!-- #BeginLibraryItem "/library/group_ad1.lbi" --><!-- #EndLibraryItem -->
+      </div>
+      <div id="group_box3">
+	  <!-- #BeginLibraryItem "/library/group_ad2.lbi" --><!-- #EndLibraryItem -->
+        
+      </div>
+      <div id="group_box4">
+        <!-- #BeginLibraryItem "/library/group_ad3.lbi" --><!-- #EndLibraryItem -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+   <div class="box">
+  
+    <div class="list_left">
+      <!-- {if $gb_list} 如果有团购活动 -->
+        <ul class="clearfix">
+      <!--{foreach from=$gb_list item=group_buy key=key name=foo}-->
+         <!-- {if $smarty.foreach.foo.iteration >3}-->
+     
+      <li class="li" onmouseover="this.className='li li_on'" onmouseout="this.className='li'">
+      
+        <div class="m">
+           
+            <div class="con">
+				 <a href="{$group_buy.url}" target="_blank"><img alt="{$group_buy.goods_name}" src="{$group_buy.goods_thumb}"  / ><i></i></a></div>
+            <h2 title="">{$group_buy.goods_name}</h2>
+            <em>{$group_buy.goods_brief}</em>
+            <div class="lasttime">
+           <span>剩余时间：</span>
+           <span class=" cover tuanTime endtime" value="{$group_buy.end_date}" showday="show" id="tt1"></span>
+          </div>
+            </div>
+           
+            
+            <div class="buy_box">
+            <p><strong id="tuanPrice3178">{$group_buy.price_ladder.0.formated_price}</strong></p>
+            <div class="person">
+              <p style="font-size:14px; font-weight:bold; color:#cf010e;">{$group_buy.valid_goods}人已购买</p>
+              <p>原价：{$group_buy.market_price}</p>
+        
+             <a href="{$group_buy.url}"  target="_blank">立即抢购</a>
+             </div>
+             </div>
+      </li>
+
+     
+       <!--{/if}-->
+      <!--{/foreach}-->
+       </ul>
+      <!-- {else} -->
+       <span style="margin:2px 10px; font-size:14px; line-height:36px;">{$lang.group_goods_empty}</span>
+      <!-- {/if} -->
+    </div>
+  </div>
+  <div class="blank"></div>
+  <!-- #BeginLibraryItem "/library/pages_group.lbi" --><!-- #EndLibraryItem -->
+
+</div>
+
+
+
+
+</div>  
+
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+<div class="left_ad" id="lefa_box" style="left: 1px;">
+	<!--左侧轮播广告开始-->
+    <div class="floor_left_ad_box" id="floor_left_ad1">
+    <div class="floor_1_ad">
+      <ul style="margin-left: -4760px;">
+		      </ul>
+    </div>    
+    <ul class="floor_1_ad_btn">
+		    </ul>
+  </div>  
+  	<!--左侧轮播广告结束-->
+			      <div class="floor_2_ad_box">{insert name='ads' id=142 num=1}</div>
+			  <div class="close_ad left_ad_box"></div> 
+  </div>
+  
+  <!--右侧轮播广告开始-->
+  
+  <div class="right_ad" id="right_box" style="right: 1px;">
+	
+    <div class="floor_1_ad_box" id="floor_right_ad1">
+    
+    <div class="floor_1_ad">
+      <ul>
+		       <li>{insert name='ads' id=143 num=1}</li>
+               <li>{insert name='ads' id=144 num=1}</li>
+               <li>{insert name='ads' id=145 num=1}</li>
+		      </ul>
+    </div>
+    
+    <ul class="floor_1_ad_btn">
+					<li></li>
+					<li></li>
+					<li></li>
+		    </ul>
+        <script type="text/javascript">
+		jQuery(".floor_1_ad_box").slide({mainCell:".floor_1_ad ul",titCell:".floor_1_ad_btn li",autoPlay:true});
+		</script>    
+  </div>
+  	
+			     <div class="floor_2_ad_box">
+             {insert name='ads' id=146 num=1}
+      </div>
+			  <div class="close_ad right_ad_box"></div>  
+  </div>
+  <!--右侧轮播广告结束-->
+ <script type="text/javascript">
+$(function(){
+	$(".list_left li").mouseover(function(){
+		$(this).find('.lasttime').stop().animate({'top':'240px'});
+		$(this).find('.m').css('background','#cf010e');
+		$(this).find('h2').css({
+			'background' : '#cf010e',
+			'color' : '#fff'
+		})
+		$(this).find('em').css({
+			'background' : '#cf010e',
+			'color' : '#fff'
+		})
+	})
+			
+	var timer=null;
+	
+	$(".list_left li").mouseout(function(){
+		$(this).find('.lasttime').stop().animate({'top':'265px'});
+		$(this).find('.m').css('background','#fff');
+		$(this).find('h2').css({
+					'background' : '#fff',
+					'color' : '#585858'
+				})
+		$(this).find('em').css({
+					'background' : '#fff',
+					'color' : '#585858'
+				})			
+	})
+
+	$('.top_show_box').hide();
+	$('.top .top_show_box:eq(0)').show();
+	$('.top .top_hide_box:eq(0)').hide();
+	$('.top li').mouseover(function(mevent){		
+		var ev=mevent.currentTarget;
+		$('.top_hide_box').show();
+		$('.top_show_box').hide();
+		$(ev).children('.top_show_box').show();
+		$(ev).find('.top_hide_box').hide();
+	})
+})
+
+
+</script>
+ 
+
+  
+</body>
+</html>

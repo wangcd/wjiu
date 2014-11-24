@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="allcate_cat">
+<div class="all_tit"><a href="index.php"><strong>商品分类</strong></a></div>
+<ul>
+<!--{foreach from=$categories item=cat name=cat}-->
+ <!--{if $smarty.foreach.cat}-->
+<li >
+
+<a class="cat_name" href="{$cat.url}" >{$cat.name|escape:html}  </a>
+                       
+<dl class="subList">
+<!--{foreach from=$cat.cat_id item=child name=child}-->
+  <!-- {if $smarty.foreach.child}-->
+<dd><a href="{$child.url}">{$child.name|escape:html}</a><span>|</span></dd>
+
+  <!--{/if}-->
+<!--{/foreach}-->
+
+ </dl>
+</li>	
+ <!--{/if}-->
+<!--{/foreach}-->
+</ul>
+</div>
+

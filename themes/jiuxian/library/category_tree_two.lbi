@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="f_r">
+<ul>
+<!--{foreach from=$categories item=cat name=cat}-->
+ <!--{if $smarty.foreach.cat.iteration<7}-->
+<li >
+<a href="{$cat.url}" ><strong>{$cat.name|escape:html}:</strong>  </a>
+                       
+<dl class="subList">
+<!--{foreach from=$cat.cat_id item=child name=child}-->
+  <!-- {if $smarty.foreach.child}-->
+<dd><a href="{$child.url}">{$child.name|escape:html}</a>
+ <!-- {if !$smarty.foreach.child.last}-->
+<span>|</span>
+<!--{/if}-->
+</dd>
+
+  <!--{/if}-->
+<!--{/foreach}-->
+ <span class="more"><a href="{$cat.url}">更多》</a></span>
+ </dl>
+</li>	
+ <!--{/if}-->
+<!--{/foreach}-->
+</ul>
+</div>
+

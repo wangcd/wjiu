@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="bshare-custom weibo">
+ <div class="bsPromo bsPromo2"></div><font style="color:#333;">分享给好友：</font>
+ <a title="分享到QQ空间" class="bshare-qzone" href="javascript:void(0);"></a>
+ <a title="分享到新浪微博" class="bshare-sinaminiblog" href="javascript:void(0);"></a>
+ <a title="分享到人人网" class="bshare-renren" href="javascript:void(0);"></a>
+ <a title="分享到腾讯微博" class="bshare-qqmb" href="javascript:void(0);"></a>
+<a title="分享到豆瓣" class="bshare-douban" href="javascript:void(0);"></a>
+<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+<span class="BSHARE_COUNT bshare-share-count" style="float: none; position:relative; top:-3px;"></span>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+</div>
+<!--
+<div class="ft">
+<font color="#D0000E">温馨提示：</font><br>
+年终大促<span>千万名酒9元秒&gt;&gt;</span>
+</div>-->

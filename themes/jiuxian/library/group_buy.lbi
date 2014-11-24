@@ -1,0 +1,105 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script>
+	var dateTime = new Date();
+
+    var difference = dateTime.getTime() - serverTime;
+	
+    setInterval(function(){
+		var endtime_obj = document.getElementsByTagName('li');
+
+		for(i=0;i<endtime_obj.length;i++)
+		{
+			if(endtime_obj[i].className == 'group_box')
+			{
+				var obj = endtime_obj[i].getElementsByTagName('input')[0];
+				var endTime = new Date(parseInt(obj.value) * 1000);
+				var nowTime = new Date();
+				var nMS=endTime.getTime() - nowTime.getTime() + difference;
+				var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+				var myH=Math.floor(nMS/(1000*60*60) % 24);
+				var myM=Math.floor(nMS/(1000*60)) % 60;
+				var myS=Math.floor(nMS/1000) % 60;
+				var myMS=Math.floor(nMS/100) % 10;
+				if(myD>= 0){
+					var str = "离活动结束：<font class='tim-fontColor'>"+myH+"</font>时"+"<font class='tim-fontColor'>"+myM+"</font>分"+"<font class='tim-fontColor'>"+myS+"</font>秒";
+				}
+				else
+				{
+					var str = "已结束！";	
+				}
+				var endtime_box_obj = endtime_obj[i].getElementsByTagName('div');
+				
+				for(j=0;j<endtime_box_obj.length;j++)
+				{
+					
+					if(endtime_box_obj[j].className == "group_endtime_box")
+					{
+							
+						endtime_box_obj[j].innerHTML = str;
+					}
+				}
+			}
+		}
+     
+    }, 100);
+
+</script>
+
+      <!-- {if $group_buy_goods} -->
+		 <div class="tuanToday">
+			<div class="blockTitle">
+            <span>今日团购</span>
+            <a class="small f_r" target="_blank" href="group_buy.php">更多团购 <code>></code></a>
+			</div>
+			 
+            <div id="slideBox" class="tuan_list"  onMouseMove="this.className='tuan_list tuan_list_on'" onMouseOut="this.className='tuan_list'">
+		
+			<div class="bd">
+				<ul class="picList">
+                   <!--{foreach from=$group_buy_goods item=goods name=group_buy_goods}-->
+					 <li class="group_box">
+                    <input type="hidden" value="{$goods.end_date}" name="endtime">
+				      <div class="group_endtime_box"></div>
+             
+                <div class="pic"><a href="{$goods.url}" target="_blank"><img  src="{$goods.thumb}" alt="{$goods.goods_name|escape:html}" width="268" height="165"   /></a>
+                      <!--  /* <p class="tuanTitle"><a href="{$goods.url}" title="{$goods.goods_name|escape:html}">{$goods.short_style_name|escape:html}</a></p>*/-->
+                         
+                         <div class="tuan_deatile">
+                         <div class="tuanPrice">
+		                  <div class="f_l"><em>团购价:</em><span class="price">¥{$goods.last_price}</span></div>
+                          <div class="f_r"><span class="s3 f_l">已售出{$goods.order_number}件</span>
+                          <span><a class="tuan" href="{$goods.url}">参团</a></span></div>
+                        </div>
+
+                         <p class="pri" style="display:none;">
+                          <span class="s1">市场价<br><small>¥{$goods.shop_price}</small></span><span class="s2">节省<br>¥{$goods.jiesheng}</span>
+                          <span class="s3">已售出
+                           <br>{$goods.order_number}件
+                          </span>
+                         </p>
+                       </div>
+                         </div>
+		                 
+					</li>
+				    <!--{/foreach}-->
+				</ul>
+			</div>
+			
+			<a class="prev" href="javascript:void(0)"></a>
+			<a class="next" href="javascript:void(0)"></a>
+            <input type="hidden" value="{$goods.end_date}" name="endtime"> 
+            <div class="group_endtime_box"></div>
+		</div>
+        
+        	<script type="text/javascript">
+		jQuery(".tuan_list").slide({mainCell:".bd ul",autoPlay:true});
+		</script>
+
+		</div>
+        <!--{/if}-->
+        
+
+
+
+
+  

@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $promotion_goods} -->
+  <ul class="tabFourList" >
+<!--{foreach from=$promotion_goods item=goods name=promotion_goods}-->
+  <!--{if $smarty.foreach.promotion_goods.iteration<11}-->
+ <li id='li_{$smarty.foreach.promotion_goods.iteration}'>
+ <span class="promotion_pic"></span>
+ <a class="pPic"  href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}"  class="err-product" /></a>
+ <div class="txt">
+            <p class="np_1"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+            <p class="np_2"><span> 市场价：<font class="market">{$goods.market_price}</font>
+           
+           <!-- {if $goods.promote_price neq ""} -->
+          活动价：<font class="snPrice">{$goods.promote_price}</font>
+          <!-- {else}-->
+          商城价：<font class="snPrice">{$goods.shop_price}</font>
+          <!--{/if}-->
+           </span>
+          </p> 
+         </div>
+       </li>
+ 
+   
+  <!--{/if}-->
+<!--{/foreach}-->
+ </ul>
+<!-- {/if} -->
+

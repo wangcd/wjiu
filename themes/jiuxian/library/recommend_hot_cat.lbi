@@ -1,0 +1,66 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+  
+  <!-- {if $hot_goods} -->
+  
+  <div id="slideBox" class="hot_buy_box clearfix">
+   <div class="hot_buy_title_box" ><h3>&nbsp;</h3>
+   
+   <div class="hd">
+    <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    </ul>
+</div>
+   
+   </div>
+   
+ <div class="bd">  
+  <ul class="hot_buy_list " >
+  
+  <!--{foreach from=$hot_goods item=goods name=hot_goods}-->
+  
+ <li>
+ <a class="pPic"  href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}"  class="err-product" /></a>
+ <div class="txt">
+            <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}<font color="#ff0000">{$goods.brief}</font></a></p>
+            <span> 
+           <!-- {if $goods.promote_price neq ""} -->
+          <b class="snPrice">{$goods.promote_price}</b>
+          <!-- {else}-->
+          <b class="snPrice">{$goods.shop_price}</b>
+          <!--{/if}-->
+           </span> 
+          <a href="{$goods.url}" target="_blank" class="hot_but">立即购买</a>
+         </div>
+       </li>
+
+  <!--{/foreach}-->
+</ul> 
+</div>   
+   
+   
+  </div>
+ <!-- {/if} -->  
+  
+  <script type="text/javascript">
+		jQuery(".hot_buy_box").slide({mainCell:".bd ul",autoPlay:true,vis:4,scroll:4,effect:"leftLoop",titCell:".hd li"});
+		</script>
+<div class="blank"></div>
+  
+  
+
+
+
+  
+  
+  
+  
+  
+
+ 
+ 
+
+
+

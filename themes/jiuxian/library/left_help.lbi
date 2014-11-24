@@ -1,0 +1,52 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="help_center">
+<div class="tit"><span>帮助中心</span></div>
+<div class="box_0" >
+  <div id="help_txt" class="clearfix">
+   <!-- {foreach from=$helps item=help_cat name=help_cat} -->
+     <dl class="clearfix">
+    <dt onclick="tab({$smarty.foreach.help_cat.index})">
+      <span><img src="images/bnt_off.gif" ></span>
+    <a href='{$help_cat.cat_id}' title="{$help_cat.cat_name}"><b>{$help_cat.cat_name}</b></a>
+     
+     </dt>
+     
+     <ul style="display:block;">
+    <!-- {foreach from=$help_cat.article item=item key=key} -->
+     <dd><a href="{$item.url}" title="{$item.title|escape:html}" >{$item.short_title}</a></dd>
+     <!--{/foreach}-->
+       </ul> 
+       </dl>
+    <!--{/foreach}--> 
+      </div>
+        </div>
+  </div>
+  <div class="blank"></div>
+  
+  
+  <script type="text/javascript">
+obj_h4 = document.getElementById("help_txt").getElementsByTagName("dt")
+obj_ul = document.getElementById("help_txt").getElementsByTagName("ul")
+obj_img = document.getElementById("help_txt").getElementsByTagName("img")
+function tab(id)
+{ 
+		if(obj_ul.item(id).style.display == "block")
+		{
+			obj_ul.item(id).style.display = "none"
+			obj_img.item(id).src = "images/bnt_on.gif"
+			return false;
+		}
+		else(obj_ul.item(id).style.display == "none")
+		{
+			obj_ul.item(id).style.display = "block"
+			obj_img.item(id).src = "images/bnt_off.gif"
+		}
+}
+</script>
+
+
+<div class="blank"></div>
+
+
+  
+

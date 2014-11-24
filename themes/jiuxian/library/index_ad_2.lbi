@@ -1,0 +1,32 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style>
+#focus {display: block; padding:1px; width:726px; border:1px solid #d5d5d5; float:left; height:391px; overflow:hidden}
+</style>
+
+  
+<DIV id=focus>
+<!-- {if $index_ad eq 'sys'} -->
+  <script type="text/javascript">
+  var swf_width=726;
+  var swf_height=391;
+  </script>
+  <script type="text/javascript" src="data/flasblockTitleata/{$flash_theme}/cycle_image.js"></script>
+<!-- {elseif $index_ad eq 'cus'} -->
+  <!-- {if $ad.ad_type eq 0} -->
+    <a href="{$ad.url}" target="_blank"><img src="{$ad.content}" width="726" height="391" border="0"></a>
+  <!-- {elseif $ad.ad_type eq 1} -->
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="726" height="391">
+      <param name="movie" value="{$ad.content}" />
+      <param name="quality" value="high" />
+      <embed src="{$ad.content}" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="726" height="391"></embed>
+    </object>
+  <!-- {elseif $ad.ad_type eq 2} -->
+    {$ad.content}
+  <!-- {elseif $ad.ad_type eq 3} -->
+    <a href="{$ad.url}" target="_blank">{$ad.content}</a>
+  <!-- {/if} -->
+<!-- {else} -->
+<!-- {/if} -->
+</DIV>
+<div class="blank"></div>

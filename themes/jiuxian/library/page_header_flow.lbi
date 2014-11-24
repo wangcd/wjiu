@@ -1,0 +1,70 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files='jquery-1.8.2.min.js,jquery.json.js'}
+{insert_scripts files='transport.js,utils.js'}
+
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+
+
+</script>
+
+<div class="flow_tit">
+
+<div class="block980" >
+
+
+<div class="tbg">
+ <div class="tbl"></div>
+ <div class="tbm">
+ 
+ 
+   <font id="ECS_MEMBERZONE" style="float:left;">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+   <span class="shu">|</span>
+ 
+ 
+  <!--{if $navigator_list.top}-->
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->  
+     <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->  target="_blank" <!-- {/if} -->>{$nav.name}</a>
+     <!--{if !$smarty.foreach.nav_top_list.last}-->
+     <span class="shu">|</span>      
+      <!--{/if}-->        
+    <!-- {/foreach} --> <!-- {/if} -->
+    </div>
+ 
+ <div class="tbr"></div>
+   
+</div>
+
+</div>
+
+</div>
+
+<div class="headBg" style="height:85px; ">
+
+<div class="block980 clearfix">
+ <div class="flow_logo">
+ <a  href="../index.php" name="top"><img src="images/logo.gif"></a>
+ </div>
+ 
+ <ul class="flow_img">
+<li><img src="images/tf.jpg"></li>
+<li><img src="images/th.jpg"></li>
+<li><img src="images/tp.jpg"></li>
+</ul>
+ <div class="flow_tel"><img src="images/400.jpg"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 

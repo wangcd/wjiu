@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if $helps}-->
+<div class="allcate_cat">
+<div class="all_tit"><strong>帮助中心目录</strong></div>
+<ul>
+
+
+<!-- {foreach from=$helps item=help_cat} -->
+<li>
+<dl>
+  <dt><a  class="cat_name" href='{$help_cat.cat_id}' title="{$help_cat.cat_name}" style=" font-weight:bold;">{$help_cat.cat_name}</a></dt>
+  <!-- {foreach from=$help_cat.article item=item} -->
+  <dd><a class="cat_name" href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></dd>
+  <!-- {/foreach} -->
+</dl>
+</li>
+<!-- {/foreach} -->
+</ul>
+</div>
+<!--{/if}-->

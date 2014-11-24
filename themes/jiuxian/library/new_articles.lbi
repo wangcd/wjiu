@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <div class="about_news" >
+    <div class="tit_h2">
+     <b>关于和茶</b>
+     <span class="more"><a href="#">更多》</a></span>
+    </div>  
+       <ul>  
+        <!--{foreach from=$new_articles item=article name=no}-->
+		<li>
+        
+        <a href="{$article.url}" title="{$article.title|escape:html}" >{$article.short_title}</a>
+		</li>
+        <!--{/foreach}-->
+</ul>
+</div>

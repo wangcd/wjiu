@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="imgInfo clearfix" > 
+<a id="Zoomer" class="MagicZoomPlus" href="{$pictures.0.img_url}" rel="hint-text: ; selectors-effect: fade; selectors-change: mouseover; zoom-width: 400; zoom-height: 400;">
+<img src="{$goods.goods_img}" alt="{$goods.goods_name|escape:html}" class="goods_img">
+</a>
+<div class="blank" style="height:0;"></div>
+
+
+
+
+
+<!-- {if $pictures}-->
+<div id=spec-n5 class="clearfix">
+
+   <div class="hd">
+
+   <a class="prev" id="spec-left"> </a>
+   <a class="next" id="spec-right"> </a>
+   </div>
+   
+  <div id=spec-list>
+   <div class="bd">
+    <ul class="list-h" >
+      <!-- {foreach from=$pictures item=picture name=foo}-->
+      <li><a href="{if $picture.img_url}{$picture.img_url}{else}{$picture.thumb_url}{/if}" rel="zoom-id: Zoomer" rev="{if $picture.img_url}{$picture.img_url}{else}{$picture.thumb_url}{/if}"target="_blank" ><img src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" alt="{$goods.goods_name}"/></a> </li>
+      <!--{/foreach}-->
+      
+    </ul>
+   </div>
+  </div>
+ 
+</div>
+<!-- {/if}--> 
+
+</div>
+
+<script type="text/javascript">
+		jQuery("#spec-n5").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",vis:6,trigger:"click"});
+		</script>

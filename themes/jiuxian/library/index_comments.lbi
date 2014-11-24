@@ -1,0 +1,39 @@
+<?php
+if(!function_exists("get_comments")){
+function get_comments($num)
+{
+   $sql = 'SELECT * FROM '. $GLOBALS['ecs']->table('comment') .
+            ' WHERE status = 1 AND parent_id = 0 and comment_type=0 '.
+            ' ORDER BY add_time DESC';
+  if ($num > 0)
+  {
+   $sql .= ' LIMIT ' . $num;
+  }
+  //echo $sql;
+        
+  $res = $GLOBALS['db']->getAll($sql);
+  $comments = array();
+  foreach ($res AS $idx => $row)
+  {
+   $comments[$idx]['add_time']       = $comments[$idx]['add_time']       = local_date
+($GLOBALS['_CFG']['time_format'], $row['add_time']);
+   $comments[$idx]['user_name']       = $row['user_name'];
+   $comments[$idx]['content']       = $row['content'];
+   $comments[$idx]['id_value']       = $row['id_value'];
+  }
+  return $comments;
+}
+}
+?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--数据调用-最新评论开始 -->       
+<?php
+   $this->assign('my_comments',get_comments(10)); // 10条数据
+?>
+  <div class="comments">
+<!--{foreach from=$my_comments item=comments}-->
+      <div class="t_l f_l"><a href="goods.php?id={$comments.id_value}" target="_blank">
+{$comments.content|truncate:15:""}</a></div><div class="d_r f_r">时间：
+{$comments.add_time}</div>
+      <!--{/foreach}-->
+  </div>

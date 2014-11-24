@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="block">
+<div class="daogou">
+<div class=" index_l daogouBox">
+<h4>育婴导购</h4>
+<p>
+<a class="dgIcon1"  href="#"><span>备孕</span></a>
+
+<a class="dgIcon2" href="#"><span>怀孕</span></a>
+
+<a class="dgIcon3"  href="#"><span>0-4个月</span></a>
+
+<a class="dgIcon4"  href="#"><span>4-8个月</span></a>
+
+<a class="dgIcon5"  href="#"><span>8-18个月</span></a>
+
+<a class="dgIcon6" href="#"><span>18-36个月</span></a>
+
+<a class="dgIcon7"  href="#"><span>3岁以上</span></a>
+
+</p>
+<em></em>
+</div>
+<div class=" index_r daogouAds" >
+{insert name='ads' id=43 num=1}
+</div>
+
+</div>
+</div>

@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div id="lss">
+<form name="searchForm"  method="get" action="search.php" onSubmit="return checkSearchForm()">
+<div class="lss01">
+<input name="keywords" type="text" id="keyword1" value="" onclick="javascript:this.value=''"/>
+</div>
+<div class="lss02">
+<input type="submit" class="lss03" value="">
+</div>
+</form>
+</div>
+

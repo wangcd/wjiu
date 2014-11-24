@@ -1,0 +1,92 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/jquery.js"></script>
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/jquery.SuperSlide.js"></script>
+
+<!--分类商品列表-->
+<!-- {if $cat_rec_sign neq 1} zhangyh_100322 -->
+<div style="width:980px; float:left;">
+ <div class="h3">
+  <div class="con">
+     <div class="f_l"><a href="{$goods_cat.url}">{$goods_cat.name|escape:html}</a>
+     </div>
+     <span>{$good.brief}</span>
+       <p>
+         <span class="p_span">  
+        <!--{foreach name=childlist from=$goods_cat.children item=children name=child}-->
+        <a href="category.php?id={$children.cat_id}" target="_blank"> {$children.cat_name} </a>
+        
+        <span>|</span>
+        <!--{/foreach}-->
+        <a href="">更多</a>
+        </span>
+        
+      </p>   
+    </div>
+  </div>
+  
+ <div class="floorC">
+    <div class="lc" >
+	
+      <!-- {/if} zhangyh_100322-->
+
+      <div class="img_padd" style="float:left"> <?php echo get_adv('cat_l',$GLOBALS['smarty']->_var['goods_cat']['id'])?> </div>
+     <ul>
+        <!--{foreach from=$cat_goods item=goods name=cat_goods}-->
+
+            <li class='li_{$smarty.foreach.cat_goods.iteration}'>
+          <a class="propic" href="{$goods.url}"><img  src="{$goods.thumb}" alt="{$goods.name|escape:html}"  /></a>
+          <div class="txt">
+             <p class="proinfo"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a>  </p>
+              <span class="snPrice">  
+              <!--{if $goods.promote_price neq "" } -->
+                {$goods.promote_price}
+                <!--{else}-->
+                {$goods.shop_price}
+                <!--{/if}-->
+                
+                </span> 
+                 <span class="market"> {$goods.market_price}</span>
+               </div> 
+               
+            </li>
+          
+        <!--{/foreach}-->
+      </ul>
+    </div>
+ </div>
+</div>
+
+
+  
+   <!--分类热销排行榜-->
+  <div class="index_r col_right ">
+<div class="tab_tit">{$goods_cat.name|escape:html}热销排行榜</div>
+  <div class="col_list">
+    <ul>
+      <!--{foreach from=$goods_cat.sales_volume item=goods name=foo}-->
+      <li class="item_{$smarty.foreach.foo.iteration}"> 
+	   <div class="item_pic">
+	  <span class="rank_{$smarty.foreach.foo.iteration}">{$smarty.foreach.foo.iteration}</span>
+
+	  <a href="goods.php?id={$goods.goods_id}" class="prod-img"  ><img width="75" height="75" border="0" alt="" src="{$goods.goods_thumb}"></a> 
+	   </div>
+	   <div class="item_txt">
+	
+	   <p class="prod-name" ><a href="goods.php?id={$goods.goods_id}" title="{$goods.goods_name|escape:html}" >{$goods.goods_name|truncate:15:"...":true|escape:html}</a> </p>
+          <p class="prod-price"><span>¥</span>{$goods.shop_price}</p> 
+	   <p class="prod-soldnum">已售出&nbsp;<font color="#FF0000;">{if $goods.number neq null}{$goods.number}{else}0{/if}</font></p>
+	    
+		</div>
+		</li>
+      <!--{/foreach}-->
+    </ul>
+  </div>
+<div class="img_padd2"> <?php echo get_adv('cat_r1',$GLOBALS['smarty']->_var['goods_cat']['id'])?> </div>
+<div class="img_padd2"> <?php echo get_adv('cat_r2',$GLOBALS['smarty']->_var['goods_cat']['id'])?> </div>
+
+
+
+
+
+</div> 
+

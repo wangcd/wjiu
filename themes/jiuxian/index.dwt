@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
+<head>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3334122810" type="text/javascript" charset="utf-8"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META content=IE=EmulateIE7 http-equiv=X-UA-Compatible>
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta property="qc:admins" content="3407733667675121571676375" />
+<meta property="wb:webmaster" content="c43f7eb1deb60cb2" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,index.js'}
+<SCRIPT type=text/javascript>
+window.pageConfig={
+	compatible:true,
+	navId:"home"
+};
+</SCRIPT>
+<script type="text/javascript">
+var cur_date = new Date();
+var serverTime = cur_date.getTime();
+</script>
+<script type="text/javascript">
+function $id(element) {
+  return document.getElementById(element);
+}
+//切屏--是按钮，_v是内容平台，_h是内容库
+function reg(str){
+  var bt=$id(str+"_b").getElementsByTagName("h2");
+  for(var i=0;i<bt.length;i++){
+    bt[i].subj=str;
+    bt[i].pai=i;
+    bt[i].style.cursor="pointer";
+    bt[i].onmousemove=function(){
+      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
+      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++){
+        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
+        var ison=j==this.pai;
+        _bt.className=(ison?"":"h2bg");
+      }
+    }
+  }
+  $id(str+"_h").className="none";
+  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
+}
+
+function changeAtt(t) {
+t.lastChild.checked='checked';
+for (var i = 0; i<t.parentNode.childNodes.length;i++) {
+        if (t.parentNode.childNodes[i].className == 'cattsel') {
+            t.parentNode.childNodes[i].className = '';
+        }
+    }
+t.className = "cattsel";
+changePrice();
+}
+</script>
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- #BeginLibraryItem "/library/index_ad_top.lbi" --><!-- #EndLibraryItem -->
+
+<!-- #BeginLibraryItem "/library/page_header_index.lbi" --><!-- #EndLibraryItem -->
+{insert_scripts files='hecha_common.js,ad_top_1200.js'}
+<script>
+$(function(){
+	var datename = new Date();
+	var Offset = datename.getTimezoneOffset() * 28800;
+	
+	setInterval(function(){
+      $(".endtime").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('value')) * 1000 - Offset) ;
+		var show_day =  obj.attr('showday');
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime();
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+		var myH_show=Math.floor(nMS/(1000*60*60) % 24);
+        var myH=Math.floor(nMS/(1000*60*60));
+        var myM=Math.floor(nMS/(1000*60)) % 60;
+        var myS=Math.floor(nMS/1000) % 60;
+        var myMS=Math.floor(nMS/100) % 10;
+		var myHZero = '';
+ 		var myMZero = '';
+		var mySZero = '';
+		if (myH < 10)
+		{
+			var myHZero = '0';
+		}
+		if (myM < 10)
+		{
+			var myMZero = '0';
+		}
+		if (myS < 10)
+		{
+			var mySZero = '0';
+		}
+		
+        if(myD >= 0){
+			if(show_day == 'show')
+			{
+				var str = '<span>'+myD+'</span>天<span>'+myH_show+'</span>时<span>'+myM+'</span>分<span>'+myS+'</span>秒';
+			}
+			else
+			{
+				var str = '<b class="tcd-h">'+myHZero+myH+'</b>:<b class="tcd-m">'+myMZero+myM+'</b>:<b class="tcd-s">'+mySZero+myS+'</b>';
+			}
+        }else{
+			var str = "已结束！";	
+		}
+		obj.html(str);
+      });
+    }, 100);
+})
+</script>
+
+
+<!-- #BeginLibraryItem "/library/index_ad.lbi" --> <!-- #EndLibraryItem -->
+
+
+ 
+  
+<!-- #BeginLibraryItem "/library/brands.lbi" --> <!-- #EndLibraryItem -->
+
+<div class="block">
+<div class="blank"></div>
+ 
+<div class="proGroup  ">
+
+<div class="ff_1">
+<h2 id="ECS_tree1" class="tabFront" >本月优惠活动</h2>
+<h2 id="ECS_tree2" class="tabBack">热卖推荐</h2>
+<h2 id="ECS_tree3" class="tabBack">会员专区</h2>
+<h2 id="ECS_tree4" class="tabBack">积分兑换</h2>
+<h2 id="ECS_tree5" class="tabBack" style="border-right:none; display:none;">多买多优惠</h2>
+</div>
+
+<div id="ECS_tree1_BODY">
+<!-- TemplateBeginEditable name="疯狂购" -->
+<!-- #BeginLibraryItem "/library/recommend_promotion.lbi" -->
+
+<!-- {if $promotion_goods} -->
+  <ul class="tabFourList" >
+<!--{foreach from=$promotion_goods item=goods name=promotion_goods}-->
+  <!--{if $smarty.foreach.promotion_goods.iteration<11}-->
+ <li id='li_{$smarty.foreach.promotion_goods.iteration}'>
+ <span class="promotion_pic"></span>
+ <a class="pPic"  href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}"  class="err-product" /></a>
+ <div class="txt">
+            <p class="np_1"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+            <p class="np_2"><span> <!--市场价：<font class="market">{$goods.market_price}</font>-->
+           
+           <!-- {if $goods.promote_price neq ""} -->
+          活动价：<font class="snPrice">{$goods.promote_price}</font>
+          <!-- {else}-->
+          商城价：<font class="snPrice">{$goods.shop_price}</font>
+          <!--{/if}-->
+           </span>
+          </p> 
+         </div>
+       </li>
+ 
+   
+  <!--{/if}-->
+<!--{/foreach}-->
+ </ul>
+<!-- {/if} -->
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+
+<div id="ECS_tree2_BODY" style="display:none;">
+<!-- TemplateBeginEditable name="热卖推荐" -->
+<!-- #BeginLibraryItem "/library/recommend_hot.lbi" -->
+
+ 
+  
+  <!-- {if $hot_goods} -->
+  
+ <ul class="tabFourList " >
+  
+  <!--{foreach from=$hot_goods item=goods name=hot_goods}-->
+  
+ <li id='li_{$smarty.foreach.hot_goods.iteration}'>
+ <span class="hot_pic"></span>
+ <a class="pPic"  href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}"  class="err-product" /></a>
+ <div class="txt">
+            <p class="np_1"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+            <p class="np_2"><span><!--市场价：<font class="market">{$goods.market_price}</font>-->
+           
+           <!-- {if $goods.promote_price neq ""} -->
+          活动价：<font class="snPrice">{$goods.promote_price}</font>
+          <!-- {else}-->
+          商城价：<font class="snPrice">{$goods.shop_price}</font>
+          <!--{/if}-->
+           </span>
+          </p> 
+         </div>
+       </li>
+
+  <!--{/foreach}-->
+</ul>
+ 
+
+
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+</div>
+<div id="ECS_tree3_BODY" style="display:none;">
+<!-- TemplateBeginEditable name="猜你喜欢" -->
+<!-- #BeginLibraryItem "/library/recommend_best.lbi" -->
+
+ 
+  
+  <!-- {if $best_goods} -->
+  
+ <ul class="tabFourList" >
+  <!--{foreach from=$best_goods item=goods name=best_goods}-->
+     <!--{if $smarty.foreach.best_goods.iteration<11}-->
+<li id='li_{$smarty.foreach.best_goods.iteration}'>
+ <span class="best_pic"></span>
+ <a class="pPic"  href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}"  class="err-product" /></a>
+ <div class="txt">
+            <p class="np_1"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+            <p class="np_2"><span> <!--市场价：<font class="market">{$goods.market_price}</font>-->
+           
+           <!-- {if $goods.promote_price neq ""} -->
+          活动价：<font class="snPrice">{$goods.promote_price}</font>
+          <!-- {else}-->
+          商城价：<font class="snPrice">{$goods.shop_price}</font>
+          <!--{/if}-->
+           </span>
+          </p> 
+         </div>
+       </li>
+    <!--{/if}-->
+  <!--{/foreach}-->
+</ul>
+ 
+
+
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+<div id="ECS_tree4_BODY" style="display:none;">
+<!-- TemplateBeginEditable name="新品上架" -->
+<!-- #BeginLibraryItem "/library/recommend_new.lbi" -->
+
+ 
+  
+  <!-- {if $new_goods} -->
+  
+ <ul class="tabFourList" >
+  <!--{foreach from=$new_goods item=goods name=new_goods}-->
+  
+<li id='li_{$smarty.foreach.new_goods.iteration}'>
+ <span class="new_pic"></span>
+ <a class="pPic"  href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}"  class="err-product" /></a>
+ <div class="txt">
+            <p class="np_1"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+            <p class="np_2"><span><!--市场价：<font class="market">{$goods.market_price}</font>-->
+           
+           <!-- {if $goods.promote_price neq ""} -->
+          活动价：<font class="snPrice">{$goods.promote_price}</font>
+          <!-- {else}-->
+          商城价：<font class="snPrice">{$goods.shop_price}</font>
+          <!--{/if}-->
+           </span>
+          </p> 
+         </div>
+       </li>
+
+  <!--{/foreach}-->
+</ul>
+ 
+
+
+<!-- {/if} -->
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+ </div>
+ 
+ <div id="ECS_tree5_BODY" style="display:none;">
+ <!-- #BeginLibraryItem "/library/recommend_best_index.lbi" --> <!-- #EndLibraryItem -->
+ </div>
+
+
+</div>
+ 
+<script type="text/javascript">
+//<![CDATA[
+{literal}
+  var cycleList = ['ECS_tree1','ECS_tree2','ECS_tree3','ECS_tree4','ECS_tree5'];
+  var tabFront = 'tabFront';
+  var tabBack = 'tabBack';
+  function cycleShow(obj)
+  {
+    var curObj;
+    var curBody;
+    for (i=0; i < cycleList.length; i++)
+    {
+      curObj = document.getElementById(cycleList[i]);
+      curBody = document.getElementById(cycleList[i] + '_BODY');
+      if (obj.id == curObj.id)
+      {
+        curObj.className = tabFront;
+        curBody.style.display = "";
+      }
+      else
+      {
+        curObj.className = tabBack;
+        curBody.style.display = "none";
+      }
+    }
+  }
+
+  // 添加事件
+  for (i=0; i< cycleList.length; i++)
+  {
+    document.getElementById(cycleList[i]).onmousemove = function()
+    {
+      cycleShow(this);
+    };
+  }
+{/literal}
+//]]>
+</script>
+
+<div class="index_r">
+ <div class="ad1">
+  <!-- TemplateBeginEditable name="团购上方广告" -->
+<!-- TemplateEndEditable -->
+ </div>
+ <div class="blank"></div>
+ 
+ <div class="notice_news" >
+			<div class="hd">
+           <ul><li><b>酒品识别</b></li><li><b>新闻资讯</b></li><li><b>最新公告</b></li></ul>
+			</div>
+			<div class="bd">
+				 <!-- TemplateBeginEditable name="酒品识别" -->
+<!-- TemplateEndEditable -->
+				  <!-- TemplateBeginEditable name="新闻资讯" -->
+<!-- TemplateEndEditable -->
+				  <!-- TemplateBeginEditable name="最新公告" -->
+<!-- #BeginLibraryItem "/library/cat_articles.lbi" -->
+
+ <div class="news " >
+       <dl>  
+  <!--{foreach from=$articles item=article_item name=no1}-->
+
+ <dd class='li_{$smarty.foreach.no1.iteration}'>
+  <a href="{$article_item.url}" title="{$article_item.title|escape:html}">{$article_item.short_title|truncate:16:"..."|true}</a>  
+  </dd>
+
+  <!--{/foreach}-->
+  </dl>
+</div>
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+ 
+{insert name='ads' id=$ads_id num=$ads_num}
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+			</div>
+		</div>
+  	<script type="text/javascript">jQuery(".notice_news").slide({titCell:".hd li"});</script>
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ <div class="clearfix"></div>
+<!-- TemplateBeginEditable name="今日团购" -->
+<!-- TemplateEndEditable -->
+  
+
+</div>
+ </div>
+ 
+<div class="blank"></div>
+
+
+
+<!--
+
+<div class="block clearfix">
+  <!-- #BeginLibraryItem "/library/recommend_promotion_two.lbi" --><!-- #EndLibraryItem -->
+</div>
+<div class="blank"></div>
+<div class="block clearfix">
+  <!-- #BeginLibraryItem "/library/recommend_hot_two.lbi" --><!-- #EndLibraryItem -->
+</div>
+<div class="blank"></div>
+
+
+<div class="block clearfix">
+ <!-- #BeginLibraryItem "/library/index_comm.lbi" --><!-- #EndLibraryItem -->
+</div>
+
+-->
+
+
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+
+
+</body>
+</html>
