@@ -156,7 +156,7 @@ scrollAmount=3><U><FONT color=red>
   'sms_total_money' => '',
   'sms_balance' => '',
   'sms_last_request' => '',
-  'affiliate' => 'a:3:{s:6:"config";a:7:{s:6:"expire";d:24;s:11:"expire_unit";s:3:"day";s:11:"separate_by";i:0;s:15:"level_point_all";s:3:"40%";s:15:"level_money_all";d:0;s:18:"level_register_all";i:0;s:17:"level_register_up";i:0;}s:4:"item";a:1:{i:0;a:2:{s:11:"level_point";s:3:"40%";s:11:"level_money";s:3:"20%";}}s:2:"on";i:1;}',
+  'affiliate' => 'a:3:{s:6:"config";a:7:{s:6:"expire";d:24;s:11:"expire_unit";s:3:"day";s:11:"separate_by";i:1;s:15:"level_point_all";s:3:"40%";s:15:"level_money_all";d:0;s:18:"level_register_all";i:0;s:17:"level_register_up";i:0;}s:4:"item";a:1:{i:0;a:2:{s:11:"level_point";s:3:"40%";s:11:"level_money";d:0;}}s:2:"on";i:1;}',
   'captcha' => '37',
   'captcha_width' => '100',
   'captcha_height' => '20',

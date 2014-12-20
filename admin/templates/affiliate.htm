@@ -16,10 +16,8 @@
 <form method="post" action="affiliate.php">
             <table width="100%" border="0" cellspacing="0" cellpadding="4">
                 <tr>
-                    <td colspan="2" style="border-bottom:1px dashed #dadada;">
-					<!--<input type="radio" name="separate_by" value="0" {if !$config.config.separate_by || $config.config.separate_by eq 0} checked="true" {/if} onClick="actDiv('listDiv','');">
-                    {$lang.separate_by.0}-->
-					<input type="radio" name="separate_by" value="1" {if $config.config.separate_by eq 1} checked="true" {/if} onClick="actDiv('listDiv','');">
+                    <td colspan="2" style="border-bottom:1px dashed #dadada;"><input type="radio" name="separate_by" value="0" {if !$config.config.separate_by || $config.config.separate_by eq 0} checked="true" {/if} onClick="actDiv('listDiv','');">
+                    {$lang.separate_by.0}<input type="radio" name="separate_by" value="1" {if $config.config.separate_by eq 1} checked="true" {/if} onClick="actDiv('listDiv','none');">
                         {$lang.separate_by.1}</td>
                 </tr>
                 <tr>
@@ -38,13 +36,13 @@
                     <br />
                     <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="notice2">{$lang.help_lpa|nl2br}</span></td>
                 </tr>
-              <!--   <tr>
+                <tr>
                     <td align="right" class="label"><a href="javascript:showNotice('notice3');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}" /></a>{$lang.level_money_all} </td>
                     <td><input type="text" name="level_money_all" maxlength="150" size="10" value="{$config.config.level_money_all}" />
                     <br />
                     <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="notice3">{$lang.help_lma|nl2br}</span></td>
                 </tr>
-               <tr>
+                <tr>
                     <td align="right" class="label"><a href="javascript:showNotice('notice4');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}" /></a>{$lang.level_register_all}</td>
                     <td><input type="text" name="level_register_all" maxlength="150" size="10" value="{$config.config.level_register_all}" />
                     <br />
@@ -55,7 +53,6 @@
                     <td><input type="text" name="level_register_up" maxlength="150" size="10" value="{$config.config.level_register_up}" />
                     <br />
                     <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="notice5">{$lang.help_lru|nl2br}</span></td>
-					-->
                 <tr><td></td>
                     <td><input type="hidden" name="act" value="updata" /><input type="submit" value="{$lang.button_submit}" class="button" /></td>
                 </tr>
@@ -92,7 +89,7 @@ actDiv('separate','none');
 actDiv('btnon','none');
 {/if}
 {if $config.config.separate_by eq 1}
-actDiv('listDiv','');
+actDiv('listDiv','none');
 {/if}
 
 var all_null = '{$lang.all_null}';

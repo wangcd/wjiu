@@ -285,11 +285,18 @@ elseif ($_REQUEST['act'] == 'insert')
         $sql = "SELECT nav_list FROM " . $ecs->table('admin_user') . " WHERE action_list = 'all'";
         $row = $db->getRow($sql);
 
-
+	/*添加管理员*/
     $sql = "INSERT INTO ".$ecs->table('admin_user')." (user_name, email, password, add_time, nav_list, action_list, role_id) ".
            "VALUES ('".trim($_POST['user_name'])."', '".trim($_POST['email'])."', '$password', '$add_time', '$row[nav_list]', '$action_list', '$role_id')";
-
-    $db->query($sql);
+	$db->query($sql);
+	$ad_user_id=mysql_insert_id();
+	/*添加会员*/
+	$res_time=local_strtotime(local_date('Y-m-d H:i:s'));
+	$sql_in = "INSERT INTO ".$ecs->table('users')." (user_name,password,email,ad_user_id,reg_time) ".
+           "VALUES ('".trim($_POST['user_name'])."', '$password', '".trim($_POST['email'])."', '$ad_user_id',$res_time)";
+	$db->query($sql_in);
+	
+    
     /* 转入权限分配列表 */
     $new_id = $db->Insert_ID();
 

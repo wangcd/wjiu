@@ -3,14 +3,14 @@
 /**
  * ECSHOP 程序说明
  * ===========================================================
- * 版权所有 2005-2010 上海商派网络科技有限公司，并保留所有权利。
+ * * 版权所有 2005-2012 上海商派网络科技有限公司，并保留所有权利。
  * 网站地址: http://www.ecshop.com；
  * ----------------------------------------------------------
  * 这不是一个自由软件！您只能在不用于商业目的的前提下对程序代码进行修改和
  * 使用；不允许对程序代码以任何形式任何目的的再发布。
  * ==========================================================
- * $Author: sxc_shop $
- * $Id: affiliate_ck.php 17093 2010-04-12 05:04:53Z sxc_shop $
+ * $Author: liubo $
+ * $Id: affiliate_ck.php 17217 2011-01-19 06:29:08Z liubo $
  */
 
 define('IN_ECS', true);
@@ -138,7 +138,21 @@ elseif ($_REQUEST['act'] == 'separate')
         }
         $money = round($affiliate['config']['level_money_all'] * $row['goods_amount'],2);
         $integral = integral_to_give(array('order_id' => $oid, 'extension_code' => ''));
-        $point = round($affiliate['config']['level_point_all'] * intval($integral['rank_points']), 0);
+        /***********计算分成积分  by RockSnap************************************************************/
+        $reward = 0;
+        $or_god_sql="select * from jindong_order_goods where ( order_id=$oid )";
+        $cds=$GLOBALS['db']->getAll($or_god_sql);
+        $sum=0;//var_dump($cds);exit();
+        foreach ($cds as $list){
+        	//获取联盟价 lianmeng_price
+        	$tmp_price = $GLOBALS['db']->GetOne("select lianmeng_price from ".$GLOBALS['ecs']->table('goods')." where goods_id='".$list['goods_id']."'");
+        	if ($list['market_price']-$tmp_price > 0) {
+        		$sum=$sum+($list['market_price']-$tmp_price)*$list['goods_number'];
+        	}
+        }
+        $integral['rank_points'] = $sum;
+        /**************************************************************************************/
+        $point = round($affiliate['config']['level_point_all'] * intval($integral['rank_points']), 2);
 
         if(empty($separate_by))
         {
@@ -170,7 +184,7 @@ elseif ($_REQUEST['act'] == 'separate')
                 else
                 {
                     $info = sprintf($_LANG['separate_info'], $order_sn, $setmoney, $setpoint);
-                    log_account_change($up_uid, $setmoney, 0, $setpoint, 0, $info);
+                    log_account_change($up_uid, $setmoney, 0, $setpoint, $setpoint, $info);
                     write_affiliate_log($oid, $up_uid, $row['user_name'], $setmoney, $setpoint, $separate_by);
                 }
             }
@@ -186,7 +200,7 @@ elseif ($_REQUEST['act'] == 'separate')
             if(!empty($up_uid) && $up_uid > 0)
             {
                 $info = sprintf($_LANG['separate_info'], $order_sn, $money, $point);
-                log_account_change($up_uid, $money, 0, $point, 0, $info);
+                log_account_change($up_uid, $money, 0, $point, $point, $info);
                 write_affiliate_log($oid, $up_uid, $row['user_name'], $money, $point, $separate_by);
             }
             else

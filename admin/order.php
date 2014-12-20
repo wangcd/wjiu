@@ -844,13 +844,35 @@ elseif ($_REQUEST['act'] == 'delivery_ship')
     $shipping_status = ($order_finish == 1) ? SS_SHIPPED : SS_SHIPPED_PART;
     $arr['shipping_status']     = $shipping_status;
     $arr['shipping_time']       = GMTIME_UTC; // 发货时间
-    $arr['invoice_no']          = trim($order['invoice_no'] . '<br>' . $invoice_no, '<br>');
+    $arr['invoice_no']          = trim($order['invoice_no'] . '<br>' . $invoice_no, '<br>');//echo "";exit();
     update_order($order_id, $arr);
-
+	
+	/*************配送分成 ** by RockSnap********************************************************/
+    $reward = 0;
+	if ($_SESSION['action_list'] != 'all') {
+		$or_god_sql="select * from jindong_order_goods where ( order_id=$order_id )";
+		$cds=$GLOBALS['db']->getAll($or_god_sql);
+		$sum=0;//var_dump($cds);exit();
+		foreach ($cds as $list){
+			//获取联盟价 lianmeng_price
+			$tmp_price = $GLOBALS['db']->GetOne("select lianmeng_price from ".$GLOBALS['ecs']->table('goods')." where goods_id='".$list['goods_id']."'");
+			if ($list['market_price']-$tmp_price > 0) {
+				$sum=$sum+($list['market_price']-$tmp_price)*$list['goods_number'];
+			}
+		}
+		$reward=$sum * 0.4;
+		if ($reward > 0) {
+		    $sql=" update jindong_users set pay_points=(pay_points+$reward) where ( ad_user_id='".$_SESSION[admin_id]."' )";
+		    $flag=$GLOBALS['db']->query($sql);
+		    if($flag!=1){ die('分成失败！');}
+		    $action_note .= " 配送分成".$reward."分";
+		}
+	}
+	/****************************************************************************************/
+	
     /* 发货单发货记录log */
     order_action($order['order_sn'], OS_CONFIRMED, $shipping_status, $order['pay_status'], $action_note, null, 1);
-
-    /* 如果当前订单已经全部发货 */
+	/* 如果当前订单已经全部发货 */
     if ($order_finish)
     {
         /* 如果订单用户不为空，计算积分，并发给用户；发红包 */
@@ -912,8 +934,8 @@ elseif ($_REQUEST['act'] == 'delivery_ship')
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'delivery_cancel_ship')
 {
-    /* 检查权限 */
-    admin_priv('delivery_view');
+    /* 检查权限 *///********取消发货的权限 ** by RockSnap
+    admin_priv('delivery_cancel_ship');
 
     /* 取得参数 */
     $delivery = '';

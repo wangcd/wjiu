@@ -8,18 +8,18 @@
 
   <?php if ($this->_var['goods']): ?>
 <ul class="car_ul"  style="display:none;">
- <?php $_from = $this->_var['goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_36018000_1416817116');$this->_foreach['goods'] = array('total' => count($_from), 'iteration' => 0);
+ <?php $_from = $this->_var['goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_45864600_1418891256');$this->_foreach['goods'] = array('total' => count($_from), 'iteration' => 0);
 if ($this->_foreach['goods']['total'] > 0):
-    foreach ($_from AS $this->_var['goods_0_36018000_1416817116']):
+    foreach ($_from AS $this->_var['goods_0_45864600_1418891256']):
         $this->_foreach['goods']['iteration']++;
 ?>
  <li>
  <div class="f_l">
- <a class="name" href="<?php echo $this->_var['goods_0_36018000_1416817116']['url']; ?>"><?php echo sub_str($this->_var['goods_0_36018000_1416817116']['short_name'],11); ?></a>
+ <a class="name" href="<?php echo $this->_var['goods_0_45864600_1418891256']['url']; ?>"><?php echo sub_str($this->_var['goods_0_45864600_1418891256']['short_name'],11); ?></a>
  </div>
  <div class="f_r">
-<span><?php echo $this->_var['goods_0_36018000_1416817116']['goods_price']; ?></span>×<?php echo $this->_var['goods_0_36018000_1416817116']['goods_number']; ?> &nbsp;
-<a class="del" href="javascript:" onClick="deleteCartGoods(<?php echo $this->_var['goods_0_36018000_1416817116']['rec_id']; ?>)">删除</a>
+<span><?php echo $this->_var['goods_0_45864600_1418891256']['goods_price']; ?></span>×<?php echo $this->_var['goods_0_45864600_1418891256']['goods_number']; ?> &nbsp;
+<a class="del" href="javascript:" onClick="deleteCartGoods(<?php echo $this->_var['goods_0_45864600_1418891256']['rec_id']; ?>)">删除</a>
  </div>
 </li>
  <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
